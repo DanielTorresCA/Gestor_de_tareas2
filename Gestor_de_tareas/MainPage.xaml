@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gestor_de_tareas.MainPage"
+             xmlns:VM ="clr-namespace:Gestor_de_tareas.Resources"
+             Title="Tareas Pendientes">
+
+    <ContentPage.BindingContext>
+        <VM:ListViewModel>
+        </VM:ListViewModel>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Margin="20,0,0,0" >
+            <ListView ItemsSource="{Binding Tareas}"
+                      SelectionMode="Single"
+                      x:Name="Listview1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="eliminar" x:Name="eliminador"
+                                          Clicked="eliminador_Clicked"
+                                          CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Detalles" x:Name="detallador" Clicked="Detalles_Clicked"
+                                          CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image Source="{Binding Imagen}" Aspect="AspectFit" WidthRequest="60" HeightRequest="60"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Nombre_Tarea}" FontAttributes="Bold" Margin="10"/>
+
+                                    <Label Text="{Binding Contenido_Tarea}" FontAttributes="Italic"/>
+
+  
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <HorizontalStackLayout
+                HorizontalOptions="End"
+                Margin="50">
+                <Button x:Name="Agregar_tarea_boton"
+                        Text="+"
+                        Background="Red"
+                        TextColor="White"
+                        HorizontalOptions="End"
+                        VerticalOptions="End"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="30"
+                        Clicked="Agregar_tarea_boton_Clicked"/>
+            </HorizontalStackLayout>
+            <Button
+                x:Name="boton_refresh"
+                Text="Refresh"
+                Background="Red"
+                TextColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="100"
+                HeightRequest="40"
+                CornerRadius="10"
+                Clicked="boton_refresh_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+    
+    
+
+</ContentPage>

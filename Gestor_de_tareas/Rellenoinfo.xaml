@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gestor_de_tareas.NewPage1"
+             Title="Ingreso Tarea">
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30"
+        Margin="10"
+           >
+
+            <Image
+                Source= "icono_tarea.png"
+                Margin="25"
+                Aspect="AspectFit"
+                WidthRequest="60" HeightRequest="60"
+                />
+            <Label Text="Tareas a Programar"
+               FontSize="Header"
+               Margin="0,0,0,50"/>
+            <HorizontalStackLayout>
+                <Label
+                    Text="Nombre Tarea:"
+                    Margin="0,0,20,0"
+                    FontSize="Small"
+                    HorizontalOptions="Start"
+                    />
+                <Entry x:Name="entrada_de_Nombre_tarea"
+                   WidthRequest="300"
+                   Placeholder="Nombre de La tarea"
+                   ClearButtonVisibility="WhileEditing"
+                   Keyboard="Text"
+                   Margin="0,0,0,10"
+                    HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label
+                    Text="Contenido:"
+                    Margin="0,20,55,0"
+                    FontSize="Small"
+                    HorizontalOptions="Start"
+                    />
+                <Entry x:Name="entrada_de_Contenido"
+                   WidthRequest="300"
+                   Placeholder="Contenido"
+                   ClearButtonVisibility="WhileEditing"
+                   Keyboard="Text"
+                   Margin="0,20,0,10"
+                    HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Label
+                    Text="Fecha creacion:"
+                    Margin="0,20,20,0"
+                    FontSize="Small"
+                    HorizontalOptions="Start"
+                    />
+                <DatePicker
+                    x:Name="Fecha_creacion"
+                    Margin="0,20,0,0"
+                    />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                HorizontalOptions="End">
+                <Button x:Name="sig_pag_boton"
+            Text="->"
+            Background="Red"
+            TextColor="White"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            WidthRequest="41"
+            HeightRequest="41"
+            CornerRadius="30"
+            Clicked="sig_pag_boton_Clicked"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
